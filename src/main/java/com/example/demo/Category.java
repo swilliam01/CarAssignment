@@ -12,7 +12,7 @@ public class Category {
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
-    public Set<Car> cars;
+    private Set<Car> cars;
 
     public long getId() {
         return id;

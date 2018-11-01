@@ -33,7 +33,7 @@ public class HomeController {
     }
 
     @PostMapping("/process")
-    public String categoryAdd(@Valid @ModelAttribute("carstores") Category carstores) {
+    public String categoryAdd(@ModelAttribute("carstores") Category carstores) {
         categoryRepository.save(carstores);
         return "redirect:/categoryList";
     }
