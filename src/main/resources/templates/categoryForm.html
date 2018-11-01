@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Title</title>
+    <th:block th:insert="base :: header"></th:block>
+</head>
+
+<body>
+<form action="#"
+       th:action="@{/process}"
+       th:object="${carstores}"
+       method="post">
+    <div th:replace="base :: navlinks"></div>
+    <input type="hidden" th:field="*{id}" />
+    Category:
+    <br>
+    <input type="text" th:field="*{name}"/>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

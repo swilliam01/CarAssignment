@@ -10,9 +10,9 @@ public class Category {
     private long id;
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "car_id")
-    private Car car;
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+    public Set<Car> cars;
 
     public long getId() {
         return id;
@@ -30,11 +30,11 @@ public class Category {
         this.name = name;
     }
 
-    public Car getCar() {
-        return car;
+    public Set<Car> getCars() {
+        return cars;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setCars(Set<Car> cars) {
+        this.cars = cars;
     }
 }

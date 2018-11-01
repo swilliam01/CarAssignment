@@ -12,11 +12,11 @@ public class Car {
     private String manufacturer;
     private String model;
     private long year;
-    private long amount;
+    private double amount;
 
-    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
-    public Set<Category> categories;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public long getId() {
         return id;
@@ -50,19 +50,19 @@ public class Car {
         this.year = year;
     }
 
-    public long getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(long amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
-    public Set<Category> getCategories() {
-        return categories;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategories(Set<Category> categories) {
-        this.categories = categories;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <th:block th:insert="base :: header"></th:block>
 </head>
 <body>
-
+<form action="#"
+      th:action="@{/carpage2}"
+      th:object="${object2}"
+      method="post">
+    <div th:replace="base :: navlinks"></div>
+    <input type="hidden" th:field="*{id}" />
+Manufacturer: <br>
+    <input type="text" th:field="*{manufacturer}">
+<br>
+Model: <br>
+    <input type="text" th:field="*{model}" />
+<br>
+Year: <br>
+    <input type="text" th:field="*{year}" />
+<br>
+MSRP: <br>
+    <input type="text" th:field="*{amount}" />
+<br>
+Category:<br>
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        Select Category
+    </button><br>
+    <div class="dropdown-menu">
+    <a class="dropdown-item" href="@{carstores.name}"></a>
+    </div>
+    <br>
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>
+
